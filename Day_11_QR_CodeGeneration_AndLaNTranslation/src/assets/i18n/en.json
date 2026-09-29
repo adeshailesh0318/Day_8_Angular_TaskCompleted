@@ -1,0 +1,17 @@
+{
+  "TITLE": "QR Code Generator",
+  "SUBTITLE": "Generate QR codes and download them as PNG or JPEG",
+  "QR_TEXT": "Enter Text or URL",
+  "PLACEHOLDER": "Enter text, URL or any data",
+  "GENERATE": "Generate QR Code",
+  "DOWNLOAD_PNG": "Download PNG",
+  "DOWNLOAD_JPEG": "Download JPEG",
+  "LANGUAGE": "Language",
+  "ENGLISH": "English",
+  "SPANISH": "Spanish",
+  "QR_PREVIEW": "QR Code Preview",
+  "LOGO": "Logo",
+  "SELECT_LOGO": "Select Logo",
+  "REMOVE_LOGO": "Remove Logo",
+  "WELCOME": "Welcome to QR Code Generator"
+}

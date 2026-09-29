@@ -1,0 +1,308 @@
+<p>student-form works!</p>
+
+
+<div class="page-container">
+
+  <mat-card class="student-card">
+
+    <mat-card-header>
+
+      <mat-card-title>
+        Student Registration
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        Enter your details below
+      </mat-card-subtitle>
+
+    </mat-card-header>
+
+
+    <mat-card-content>
+
+      <form
+        [formGroup]="studentForm"
+        (ngSubmit)="submitForm()"
+        novalidate
+      >
+
+        <!-- First Name -->
+
+        <div class="form-row">
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>First Name</mat-label>
+
+            <input
+              matInput
+              type="text"
+              formControlName="firstName"
+              placeholder="Enter first name"
+              aria-label="First Name"
+            >
+
+            <mat-error
+              *ngIf="f['firstName'].hasError('required')"
+            >
+              First name is required
+            </mat-error>
+
+            <mat-error
+              *ngIf="f['firstName'].hasError('minlength')"
+            >
+              Minimum 3 characters required
+            </mat-error>
+
+          </mat-form-field>
+
+
+          <!-- Last Name -->
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>Last Name</mat-label>
+
+            <input
+              matInput
+              type="text"
+              formControlName="lastName"
+              placeholder="Enter last name"
+              aria-label="Last Name"
+            >
+
+            <mat-error
+              *ngIf="f['lastName'].hasError('required')"
+            >
+              Last name is required
+            </mat-error>
+
+          </mat-form-field>
+
+        </div>
+
+
+        <!-- Email + Mobile -->
+
+        <div class="form-row">
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>Email</mat-label>
+
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="example@gmail.com"
+              aria-label="Email Address"
+            >
+
+            <mat-error
+              *ngIf="f['email'].hasError('required')"
+            >
+              Email is required
+            </mat-error>
+
+            <mat-error
+              *ngIf="f['email'].hasError('email')"
+            >
+              Enter a valid email
+            </mat-error>
+
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>Mobile</mat-label>
+
+            <input
+              matInput
+              type="tel"
+              formControlName="mobile"
+              placeholder="10 digit mobile number"
+              aria-label="Mobile Number"
+            >
+
+            <mat-error
+              *ngIf="f['mobile'].hasError('required')"
+            >
+              Mobile number is required
+            </mat-error>
+
+            <mat-error
+              *ngIf="f['mobile'].hasError('pattern')"
+            >
+              Enter a valid 10 digit mobile number
+            </mat-error>
+
+          </mat-form-field>
+
+        </div>
+
+
+        <!-- Age + Course -->
+
+        <div class="form-row">
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>Age</mat-label>
+
+            <input
+              matInput
+              type="number"
+              formControlName="age"
+              aria-label="Age"
+            >
+
+            <mat-error
+              *ngIf="f['age'].hasError('required')"
+            >
+              Age is required
+            </mat-error>
+
+            <mat-error
+              *ngIf="f['age'].hasError('min')"
+            >
+              Minimum age is 18
+            </mat-error>
+
+            <mat-error
+              *ngIf="f['age'].hasError('max')"
+            >
+              Maximum age is 60
+            </mat-error>
+
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+
+            <mat-label>Course</mat-label>
+
+            <mat-select
+              formControlName="course"
+              aria-label="Select Course"
+            >
+
+              <mat-option
+                *ngFor="let course of courses"
+                [value]="course"
+              >
+                {{ course }}
+              </mat-option>
+
+            </mat-select>
+
+            <mat-error
+              *ngIf="f['course'].hasError('required')"
+            >
+              Please select a course
+            </mat-error>
+
+          </mat-form-field>
+
+        </div>
+
+
+        <!-- Gender -->
+
+        <div class="gender-section">
+
+          <label class="section-label">
+            Gender
+          </label>
+
+          <mat-radio-group
+            formControlName="gender"
+            aria-label="Gender"
+          >
+
+            <mat-radio-button value="Male">
+              Male
+            </mat-radio-button>
+
+            <mat-radio-button value="Female">
+              Female
+            </mat-radio-button>
+
+            <mat-radio-button value="Other">
+              Other
+            </mat-radio-button>
+
+          </mat-radio-group>
+
+          <div
+            class="error-text"
+            *ngIf="f['gender'].touched && f['gender'].hasError('required')"
+          >
+            Please select gender
+          </div>
+
+        </div>
+
+
+        <!-- Password -->
+
+        <mat-form-field
+          appearance="outline"
+          class="full-width"
+        >
+
+          <mat-label>Password</mat-label>
+
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            placeholder="Enter password"
+            aria-label="Password"
+          >
+
+          <mat-error
+            *ngIf="f['password'].hasError('required')"
+          >
+            Password is required
+          </mat-error>
+
+          <mat-error
+            *ngIf="f['password'].hasError('minlength')"
+          >
+            Password must contain at least 6 characters
+          </mat-error>
+
+        </mat-form-field>
+
+
+        <!-- Buttons -->
+
+        <div class="button-container">
+
+          <button
+            mat-stroked-button
+            type="button"
+            (click)="resetForm()"
+          >
+            Reset
+          </button>
+
+
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+          >
+            Register
+          </button>
+
+        </div>
+
+      </form>
+
+    </mat-card-content>
+
+  </mat-card>
+
+</div>

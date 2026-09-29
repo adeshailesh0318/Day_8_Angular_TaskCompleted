@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-end mb-4">
+
+  <div class="language-box">
+
+    <label class="form-label fw-bold">
+      {{ 'LANGUAGE' | translate }}
+    </label>
+
+    <select
+      class="form-select"
+      [(ngModel)]="selectedLanguage"
+      (change)="changeLanguage(selectedLanguage)">
+
+      <option value="en">
+        {{ 'ENGLISH' | translate }}
+      </option>
+
+      <option value="es">
+        {{ 'SPANISH' | translate }}
+      </option>
+
+    </select>
+
+  </div>
+
+</div>

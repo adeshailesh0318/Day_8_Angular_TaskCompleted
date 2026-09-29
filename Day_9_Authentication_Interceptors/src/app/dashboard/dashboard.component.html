@@ -1,0 +1,70 @@
+<div class="dashboard">
+
+  <nav>
+
+    <h2>My Application</h2>
+
+    <div>
+
+      <span>
+        {{ username }} ({{ role }})
+      </span>
+
+      <button (click)="logout()">
+        Logout
+      </button>
+
+    </div>
+
+  </nav>
+
+  <div class="content">
+
+    <div class="card">
+
+      <h1>Welcome, {{ username }} 👋</h1>
+
+      <p>
+        You have successfully logged in.
+      </p>
+
+      <p>
+        Your role is:
+        <strong>{{ role }}</strong>
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Authentication Status</h3>
+
+      <p>✅ JWT Token Stored</p>
+      <p>✅ Authentication Guard Active</p>
+      <p>✅ HTTP Interceptor Active</p>
+
+    </div>
+
+    <div
+      class="card"
+      *ngIf="role === 'Admin'">
+
+      <h3>Admin Access</h3>
+
+      <p>
+        You can access the Admin section.
+      </p>
+
+      <button
+        class="admin-button"
+        routerLink="/admin">
+
+        Open Admin Panel
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,59 @@
+<h1>Day6:State Management with NgRx</h1>
+
+<div class="container">
+
+  <h1>NgRx Product Management</h1>
+
+  <div class="form">
+
+    <input
+      type="text"
+      placeholder="Product Name"
+      [(ngModel)]="productName"
+    />
+
+    <input
+      type="number"
+      placeholder="Product Price"
+      [(ngModel)]="productPrice"
+    />
+
+    <button (click)="addProduct()">
+      Add Product
+    </button>
+
+  </div>
+
+  <hr>
+
+  <h2>
+    Total Products:
+    {{ productCount$ | async }}
+  </h2>
+
+  <div *ngFor="let product of products$ | async"
+       class="product">
+
+    <div>
+
+      <h3>
+        {{ product.name }}
+      </h3>
+
+      <p>
+        Price: ₹{{ product.price }}
+      </p>
+
+    </div>
+
+    <button
+      class="delete"
+      (click)="deleteProduct(product.id)">
+
+      Delete
+
+    </button>
+
+  </div>
+
+</div>

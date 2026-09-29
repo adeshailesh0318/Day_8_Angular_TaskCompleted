@@ -1,0 +1,20 @@
+<div class="parent-box">
+
+  <h1>Parent Component</h1>
+
+  <p>
+    Sending name to child:
+    <strong>{{ name }}</strong>
+  </p>
+
+  <app-child
+    [userName]="name"
+    (messageEvent)="receiveMessage($event)">
+  </app-child>
+
+  <h3 *ngIf="parentMessage">
+    Parent received:
+    {{ parentMessage }}
+  </h3>
+
+</div>
